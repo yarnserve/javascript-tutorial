@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -42,11 +46,21 @@
       </div>
     </div>
 
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
+    <div class="dimm">
+      <i class="xi-spinner-5 xi-spin xi-3x"></i>
+    </div>
+
+    <div class="modal">
+      <span>✨</span>
+      <p>
+        메일이 성공적으로<br />
+        발송되었습니다.
+      </p>
+      <button class="close_btn">닫기</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
       ;(function () {
         emailjs.init('8ksWmS4ek6VBrnWtj')
       })()
