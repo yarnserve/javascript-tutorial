@@ -25,7 +25,7 @@ const movies = [
     id: 4,
     title: '생활의 발견',
     director: '홍상수',
-    poster: 'http://cfile6.uf.tistory.com/image/1839CC164CD8DF0E441A93',
+    poster: 'http://image.yes24.com/blogimage/blog/p/i/pioni/VWMakCt7.jpg',
     text: '연극계에서 제법 알려진 배우 경수(김상경 분). 잘 아는 감독만 믿고 영화에 출연했는데 흥행이 시원치 않다. 런닝 개런티를 부득부득 우겨 받아내는데 딸랑 100만 원. 약속했던 차기작 캐스팅은 날아가 버렸고. 이제 뭘 하지?',
   },
   {
@@ -46,18 +46,35 @@ const info = document.querySelector('.info')
 const prev = document.querySelector('.prev')
 const next = document.querySelector('.next')
 
-const currentIndex = 0
+let currentIndex = 0
 
-function showMovie() {
-  const item = movies[currentIndex]
+prev.addEventListener('click', function () {
+  currentIndex--
+  if (currentIndex < 0) {
+    currentIndex = movies.length - 1
+  }
+  showMovie(currentIndex)
+})
+
+next.addEventListener('click', function () {
+  currentIndex++
+  if (currentIndex > movies.length - 1) {
+    currentIndex = 0
+  }
+  showMovie(currentIndex)
+})
+
+function showMovie(index) {
+  const item = movies[index]
   poster.src = item.poster
   title.textContent = item.title
   director.textContent = item.director
   info.textContent = item.text
+  num.textContent = item.id
 }
 
 function init() {
-  showMovie()
+  showMovie(currentIndex)
 }
 
 init()
