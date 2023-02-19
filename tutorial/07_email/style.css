@@ -85,7 +85,7 @@ button {
 }
 
 .dimm.active {
-  opacity: 1;
+  display: block;
 }
 
 .dimm i {

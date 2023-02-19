@@ -1,5 +1,6 @@
 const form = document.querySelector('#contact-form')
 const dimm = document.querySelector('.dimm')
+console.log(dimm)
 const modal = document.querySelector('.modal')
 
 function sendEmail() {
