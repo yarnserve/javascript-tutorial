@@ -18,6 +18,10 @@ a {
   margin: 0 auto;
 }
 
+.content.active {
+  filter: blur(20px);
+}
+
 .content h2 {
   margin: 20px 0;
 }
@@ -51,8 +55,10 @@ a {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   transition: all 0.3s;
+  opacity: 0;
 }
 
 .modal.active {
   top: 50%;
+  opacity: 1;
 }
