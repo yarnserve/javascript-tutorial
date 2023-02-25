@@ -8,6 +8,10 @@ function saveTodo() {
   localStorage.setItem('todos', JSON.stringify(todos))
 }
 
+function removeTodo(e) {
+  e.target.parentNode.remove()
+}
+
 function paintTodo(text) {
   const li = document.createElement('li')
   const span = document.createElement('span')
@@ -15,6 +19,7 @@ function paintTodo(text) {
   li.innerText = text
   li.id = todos.length + 1
   span.innerText = 'x'
+  span.addEventListener('click', removeTodo)
 
   li.appendChild(span)
   ul.appendChild(li)
