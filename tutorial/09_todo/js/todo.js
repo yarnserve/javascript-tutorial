@@ -29,15 +29,14 @@ function paintTodo(text) {
   ul.appendChild(li)
 
   todos.push({ id: todos.length + 1, text })
-
   saveTodo()
-
-  console.log(todos)
 }
 
 function handleSubmit(e) {
   e.preventDefault()
+  if (input.value === '') return
   paintTodo(input.value)
+  input.value = ''
 }
 
 function loadTodo() {
