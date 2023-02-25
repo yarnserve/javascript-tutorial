@@ -2,14 +2,18 @@ const form = document.querySelector('form')
 const input = form.querySelector('input')
 const ul = document.querySelector('.todo_list')
 
-const todos = []
+let todos = []
 
 function saveTodo() {
   localStorage.setItem('todos', JSON.stringify(todos))
 }
 
 function removeTodo(e) {
-  e.target.parentNode.remove()
+  const li = e.target.parentNode
+  li.remove()
+  const newTodos = todos.filter(todo => todo.id !== parseInt(li.id))
+  todos = newTodos
+  saveTodo()
 }
 
 function paintTodo(text) {
@@ -36,7 +40,16 @@ function handleSubmit(e) {
   paintTodo(input.value)
 }
 
+function loadTodo() {
+  const localTodos = localStorage.getItem('todos')
+  if (localTodos !== null) {
+    const parseTodos = JSON.parse(localTodos)
+    parseTodos.forEach(todo => paintTodo(todo.text))
+  }
+}
+
 function init() {
+  loadTodo()
   form.addEventListener('submit', handleSubmit)
 }
 
